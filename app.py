@@ -6,8 +6,7 @@ import os
 app = Flask(__name__)
 
 # Load the trained model and label encoder
-model_path = os.path.join(os.path.dirname(__file__), 'crop_recommendation_model.pkl')  # No 'api' folder now
-model = joblib.load(model_path)
+model = joblib.load("crop_recommendation_model.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 
 @app.route('/predict', methods=['POST'])
@@ -39,4 +38,3 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
