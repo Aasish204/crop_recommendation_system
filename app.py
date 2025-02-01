@@ -1,7 +1,7 @@
 import numpy as np
-from flask import Flask, request, jsonify
+import pandas as pd
+from flask import Flask, request, render_template, jsonify, redirect, url_for
 import joblib
-import os
 
 app = Flask(__name__)
 
@@ -9,35 +9,69 @@ app = Flask(__name__)
 model = joblib.load("crop_recommendation_model.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 
+# Load the crop names from the CSV file
+data = pd.read_csv('Crop_recommendation.csv')
+crop_names = data['label'].unique()
+
+# Initialize cart
+cart = []
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get JSON data from request
-        data = request.get_json()
+        # Get data from the form
+        nitrogen = float(request.form['nitrogen'])
+        phosphorus = float(request.form['phosphorus'])
+        potassium = float(request.form['potassium'])
+        temperature = float(request.form['temperature'])
+        humidity = float(request.form['humidity'])
+        ph = float(request.form['ph'])
+        rainfall = float(request.form['rainfall'])
 
-        # Extract input features
-        N = int(data["N"])
-        P = int(data["P"])
-        K = int(data["K"])
-        temperature = float(data["temperature"])
-        humidity = float(data["humidity"])
-        ph = float(data["ph"])
-        rainfall = float(data["rainfall"])
+        # Prepare the input array
+        mydata = [nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]
 
-        # Make prediction
-        prediction = model.predict([[N, P, K, temperature, humidity, ph, rainfall]])
+        mydata = np.array(mydata).reshape(1, -1)
 
-        # Convert NumPy object to Python type using .item()
-        predicted_crop = label_encoder.inverse_transform([prediction[0]])[0]
-
-        # Return result as JSON
-        return jsonify({"prediction": predicted_crop})
-
+        # Make a prediction
+        prediction = model.predict(mydata)
+        crop_index = prediction[0]  # Predicted crop index
+        crop_name = crop_names[crop_index]  # Get the crop name
+        
+        return render_template('result.html', crop=crop_name)
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({'error': str(e)})
 
+@app.route('/seedbank')
+def seedbank():
+    seeds = crop_names[:22]  # Display 22 seeds
+    return render_template('seedbank.html', seeds=seeds)
+
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    seed = request.form['seed']
+    cart.append(seed)
+    return redirect(url_for('seedbank'))
+
+@app.route('/remove_from_cart', methods=['POST'])
+def remove_from_cart():
+    seed = request.form['seed']
+    if seed in cart:
+        cart.remove(seed)
+    return redirect(url_for('seedbank'))
+
+@app.route('/buy_now', methods=['POST'])
+def buy_now():
+    seed = request.form['seed']
+    # Implement the buy logic here
+    return redirect(url_for('seedbank'))
+
+# Run the app
 if __name__ == '__main__':
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+    app.run(debug=True)
 
-
+      
