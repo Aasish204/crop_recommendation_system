@@ -6,8 +6,10 @@ import os
 app = Flask(__name__)
 
 # Load the trained model and label encoder
-model = joblib.load("c:/Users/Acer/OneDrive/Desktop/Python/crop_recommendation_api/crop_recommendation_model.pkl")
-label_encoder = joblib.load("c:/Users/Acer/OneDrive/Desktop/Python/crop_recommendation_api/label_encoder.pkl")
+model = joblib.load("models/crop_recommendation_model.pkl")
+
+label_encoder = joblib.load("models/label_encoder.pkl")
+
 
 @app.route('/')
 def home():
