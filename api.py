@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 import joblib
 import os
 
-api = Flask(__name__)
+app = Flask(__name__)
 
 # Load the trained model and label encoder
 model = joblib.load("c:/Users/Acer/OneDrive/Desktop/Python/crop_recommendation_api/crop_recommendation_model.pkl")
