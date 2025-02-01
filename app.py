@@ -36,7 +36,9 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)})
 
-if __name__ == '__main__':
-    PORT = int(os.environ.get("PORT", 5000))  # Get the Railway-assigned port
-    app.run(host="0.0.0.0", port=PORT, debug=True)
+if __name__ == "__main__":
+    from os import environ
+    port = int(environ.get("PORT", 8080))  # Get port from Railway
+    app.run(host="0.0.0.0", port=port, debug=True)
+
 
