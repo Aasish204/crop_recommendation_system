@@ -36,9 +36,8 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)})
 
-if __name__ == "__main__":
-    from os import environ
-    port = int(environ.get("PORT", 8080))  # Get port from Railway
-    app.run(host="0.0.0.0", port=port, debug=True)
+if __name__ == '__main__':
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
 
 
