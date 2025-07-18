@@ -18,23 +18,27 @@ ________________________________________
 ________________________________________
 Dataset
 •	Source: Crop Recommendation Dataset
-•	Columns:
-o	N, P, K - Soil Nutrient content
-o	temperature, humidity - Environmental data
-o	ph - Soil pH level
-o	rainfall - Average rainfall
-o	label - Crop name
 
+•	Columns:
+
+o	N, P, K - Soil Nutrient content
+
+o	temperature, humidity - Environmental data
+
+o	ph - Soil pH level
+
+o	rainfall - Average rainfall
+
+o	label - Crop name
+________________________________________
 Model
 •	Algorithm: Random Forest Classifier
+
 •	Preprocessing: Label encoding for crop names
+
 •	Performance:
-o	Training Accuracy: 100%
-o	Cross-validation Accuracy: 99.4%
-o	Test Accuracy: 99.3%
-📈 Visualizations Included
-•	✅ Crop Label Distribution
-•	✅ Feature Distributions (Histograms)
-•	✅ Feature Importance (Bar chart)
-•	✅ Correlation Heatmap
+
+    o	Training Accuracy: 100%
+    o	Cross-validation Accuracy: 99.4%
+    o	Test Accuracy: 99.3%
 
