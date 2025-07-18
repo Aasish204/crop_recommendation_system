@@ -6,7 +6,11 @@ That’s where TerraVision comes in! 🌱
 Our mission is to empower farmers with data-driven solutions to help them make better farming decisions. With TerraVision, farmers can easily analyze their soil and climate conditions by entering key details such as:
 
 ✔ Nitrogen, phosphorus, and potassium levels
+
 ✔ Soil pH value
+
 ✔ Temperature & humidity
+
 ✔ Rainfall and climate conditions
+
 Using this information, our system predicts the best crops suited for their land, ensuring higher yields, healthier soil, and more profitable farming.
