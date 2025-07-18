@@ -10,6 +10,7 @@ ________________________________________
 •	Supports user input and outputs recommended crop instantly.
 
 •	Visualizations included for:
+
      o	Class distribution
      o	Feature distributions
      o	Feature importance
