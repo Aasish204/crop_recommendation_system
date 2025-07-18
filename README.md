@@ -1,44 +1,12 @@
-# Crop_Recommendation_System
-A machine learning project that recommends the most suitable crop to grow based on environmental conditions such as soil nutrients (N, P, K), temperature, humidity, pH, and rainfall.
-________________________________________
-📌 Features
+# TeraVision Project
+TerraVision, we are on a mission to revolutionize farming with smart technology. We believe in the power of smart farming to transform Nepal’s agriculture. Despite being an agricultural country with vast farmlands and hardworking farmers, Nepal still imports vegetables and crops from neighboring countries. This is not because we lack resources but because many farmers do not have access to modern farming techniques and scientific insights about their soil and climate.
 
-•	Predicts the best crop for given soil and weather parameters.
+That’s where TerraVision comes in! 🌱
 
-•	Uses a Random Forest Classifier for accurate predictions.
+Our mission is to empower farmers with data-driven solutions to help them make better farming decisions. With TerraVision, farmers can easily analyze their soil and climate conditions by entering key details such as:
 
-•	Supports user input and outputs recommended crop instantly.
-
-•	Visualizations included for:
-
-     o	Class distribution
-     o	Feature distributions
-     o	Feature importance
-     o	Correlation heatmap
-________________________________________
-Crop Recommendation Dataset
-
-•	Columns:
-
-    o	N, P, K - Soil Nutrient content
-
-    o	temperature, humidity - Environmental data
-
-    o	ph - Soil pH level
-
-    o	rainfall - Average rainfall
-
-    o	label - Crop name
-________________________________________
-Model
-
-•	Algorithm: Random Forest Classifier
-
-•	Preprocessing: Label encoding for crop names
-
-•	Performance:
-
-    o	Training Accuracy: 100%
-    o	Cross-validation Accuracy: 99.4%
-    o	Test Accuracy: 99.3%
-
+✔ Nitrogen, phosphorus, and potassium levels
+✔ Soil pH value
+✔ Temperature & humidity
+✔ Rainfall and climate conditions
+Using this information, our system predicts the best crops suited for their land, ensuring higher yields, healthier soil, and more profitable farming.
