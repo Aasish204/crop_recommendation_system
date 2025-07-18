@@ -16,22 +16,22 @@ ________________________________________
      o	Feature importance
      o	Correlation heatmap
 ________________________________________
-Dataset
-•	Source: Crop Recommendation Dataset
+Crop Recommendation Dataset
 
 •	Columns:
 
-o	N, P, K - Soil Nutrient content
+    o	N, P, K - Soil Nutrient content
 
-o	temperature, humidity - Environmental data
+    o	temperature, humidity - Environmental data
 
-o	ph - Soil pH level
+    o	ph - Soil pH level
 
-o	rainfall - Average rainfall
+    o	rainfall - Average rainfall
 
-o	label - Crop name
+    o	label - Crop name
 ________________________________________
 Model
+
 •	Algorithm: Random Forest Classifier
 
 •	Preprocessing: Label encoding for crop names
